@@ -37,15 +37,6 @@ try:
         visitar_web(driver,"https://bibliotecas.jcyl.es/web/es/bibliotecasoria/biblioteca-publica-soria.html")
         
         driver.implicitly_wait(5) #Espera Implicita de 10s maximo para cualquier elemento
-
-        #pantalla_buscador = obtener_selectores_busqueda()
-#Carga del fichero json para obtener las palabras del buscador
-        #Indicamos el archivo que queremos abrir
-        #with open('datos.json',"r") as mi_archivo: #se indica el archivo y se le da nombre
-        #    lector = json.load(mi_archivo) #Se define un lector en una variable
-        #                
-        #    for renglon in lector:         #Iterar el archivo renglon por renglon
-        #        var_palabraclave = renglon['palabra clave']
                 
 
 # Realizar busqueda
@@ -74,14 +65,10 @@ try:
         texto_resultado = elemento.text
 
         obtener_resultados(driver, pantalla_resultados["txt_resultados"])
-        
-        
-
-        
+      
+       
 #Se corrige el ASSERT para practicar las vueltas al archivo json
         assert "(398 registros)" == texto_resultado, "No se ha recibido el valor esperado"
-
-
 
 except AssertionError as mensajeAssertionError:
     print("Mensaje de error: " , mensajeAssertionError)
