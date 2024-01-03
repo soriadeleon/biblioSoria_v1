@@ -11,10 +11,13 @@ from selenium.webdriver.support import expected_conditions as EC #as EC es como 
 from selenium.webdriver.chrome.options import Options
 
 #Importar selectores
-from selectores import obtener_selectores_busqueda
+#from selectores import obtener_selectores_busqueda
 from selectores import obtener_selectores_resultados
 
-
+#METODOS
+from metodos import escribir_busqueda
+from metodos import visitar_web
+from metodos import obtener_resultados
 
 # try: = prueba estas sentancias del test / expect Excepcion:
 try: 
@@ -26,33 +29,27 @@ try:
         options.add_argument(f"user-agent={user_agent}")
 
 # Carga de Chrome y configuracion
+        
         driver = webdriver.Chrome()
-        driver.set_window_size(1111, 631)
+        #driver.set_window_size(1111, 631)
 
 # Navegacion a la url
-        driver.get("https://bibliotecas.jcyl.es/web/es/bibliotecasoria/biblioteca-publica-soria.html")
+        visitar_web(driver,"https://bibliotecas.jcyl.es/web/es/bibliotecasoria/biblioteca-publica-soria.html")
+        
         driver.implicitly_wait(5) #Espera Implicita de 10s maximo para cualquier elemento
 
-        pantalla_buscador = obtener_selectores_busqueda()
+        #pantalla_buscador = obtener_selectores_busqueda()
 #Carga del fichero json para obtener las palabras del buscador
         #Indicamos el archivo que queremos abrir
-        with open('datos.json',"r") as mi_archivo: #se indica el archivo y se le da nombre
-            lector = json.load(mi_archivo) #Se define un lector en una variable
-                        
-            for renglon in lector:         #Iterar el archivo renglon por renglon
-                var_palabraclave = renglon['palabra clave']
+        #with open('datos.json',"r") as mi_archivo: #se indica el archivo y se le da nombre
+        #    lector = json.load(mi_archivo) #Se define un lector en una variable
+        #                
+        #    for renglon in lector:         #Iterar el archivo renglon por renglon
+        #        var_palabraclave = renglon['palabra clave']
                 
 
 # Realizar busqueda
-        txt_busqueda = driver.find_element(By.ID, pantalla_buscador['txt_busqueda'])
-        txt_busqueda.click
-        #Por dificultades al localizar e interacturar con el botón de busqueda
-        #VAR_PALABRACLAVE proporciona el texto desde el fichero JSON
-        #    se opta por interaccionar con el mediante pulsación ENTER
-        txt_busqueda.send_keys(var_palabraclave+Keys.ENTER)
-          
-        #aceptar
-        print("Busqueda OK")
+        escribir_busqueda(driver, "cadena", "Numancia")
         time.sleep(10)
 
 # (CAMBIO DE PESTAÑA) Pagina de resultados
@@ -74,14 +71,15 @@ try:
         elemento = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.CLASS_NAME, pantalla_resultados["txt_resultados"]))
         )
+        texto_resultado = elemento.text
+
+        obtener_resultados(driver, pantalla_resultados["txt_resultados"])
         
-        txt_numeroResultados = driver.find_element(By.CLASS_NAME, pantalla_resultados["txt_resultados"])
-        txt_numeroResultados.text
         
 
-        print("Elementos totales: " , txt_numeroResultados.text)
+        
 #Se corrige el ASSERT para practicar las vueltas al archivo json
-        #assert "(398 registros)" == txt_numeroResultados.text, "No se ha recibido el valor esperado"
+        assert "(398 registros)" == texto_resultado, "No se ha recibido el valor esperado"
 
 
 
