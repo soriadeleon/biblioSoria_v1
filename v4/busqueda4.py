@@ -31,7 +31,7 @@ try:
 # Carga de Chrome y configuracion
         
         driver = webdriver.Chrome()
-        #driver.set_window_size(1111, 631)
+        driver.set_window_size(1111, 631)
 
 # Navegacion a la url
         visitar_web(driver,"https://bibliotecas.jcyl.es/web/es/bibliotecasoria/biblioteca-publica-soria.html")
