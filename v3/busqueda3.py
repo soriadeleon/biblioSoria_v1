@@ -10,6 +10,9 @@ from selenium.webdriver.support import expected_conditions as EC #as EC es como 
 #Se añade Options para añadir User-Agent para evitar ser detectados como bots
 from selenium.webdriver.chrome.options import Options
 
+import undetected_chromedriver as uc
+
+
 #Importar selectores
 from selectores import obtener_selectores_busqueda
 from selectores import obtener_selectores_resultados
@@ -19,11 +22,8 @@ from selectores import obtener_selectores_resultados
 # try: = prueba estas sentancias del test / expect Excepcion:
 try: 
 
-# Configurar opciones del navegador con un User-Agent personalizado
-        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124"
 
-        options = Options()
-        options.add_argument(f"user-agent={user_agent}")
+        driver = uc.Chrome()
 
 # Carga de Chrome y configuracion
         driver = webdriver.Chrome()

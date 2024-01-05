@@ -7,12 +7,14 @@ from selenium.webdriver.common.keys import Keys
 #from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC #as EC es como queremos que se llame
+import undetected_chromedriver as uc
 
 
 # try: = prueba estas sentancias del test / expect Excepcion:
 try: 
 
 # Carga de Chrome y configuracion
+        driver = uc.Chrome()
         driver = webdriver.Chrome()
         driver.set_window_size(1111, 631)
 

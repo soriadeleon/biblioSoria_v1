@@ -9,11 +9,16 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+
+import undetected_chromedriver as uc
+
+
 import time
 
  
 @given('que ingrese en la web de la Biblioteca de Soria')
 def step_given(context):
+       context.driver = uc.Chrome()
        context.driver = webdriver.Chrome()
        context.driver.set_window_size(1111, 631)
        context.driver.get("https://bibliotecas.jcyl.es/web/es/bibliotecasoria/biblioteca-publica-soria.html")
