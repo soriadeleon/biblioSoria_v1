@@ -58,6 +58,7 @@ try:
         driver.find_element(By.CLASS_NAME, "main_h2_2").text
         print("Elementos totales: " , driver.find_element(By.CLASS_NAME, "main_h2_2").text)
 
+# Falla a proposito
         assert "(398 registro)" == driver.find_element(By.CLASS_NAME, "main_h2_2").text, "No se ha recibido el valor esperado"
 
         
@@ -73,7 +74,11 @@ except FileNotFoundError as mensajeFileNotFoundError:
     print("Mensaje de FileNotFoundError: " , mensajeFileNotFoundError)
 
 
+print(" ------------------- ")
+print(" ---             --- ")
 print(" --- FIN DE TEST --- ")
+print(" ---             --- ")
+print(" ------------------- ")
 
 time.sleep(5)
 
