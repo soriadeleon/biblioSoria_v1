@@ -1,7 +1,16 @@
-#Este proyecto se ha creado para practicar y aprender a automatizar con Python y Selenium.
-#Por lo tanto, si estas leyendo esto y tienes consejos sobre como mejorarlo, no dudes en contactarme.
+This project has been created to practice and learn how to automate with Python and Selenium.
+So, if you are reading this and you have advice on how to improve it, don't hesitate to contact me.
 
-#Cada uno de los archivos representa una evolución del archivo anterior. Sé que podria hacerlo todo sobre el mismo archivo.
-#He optado por hacerlo así para tener los archivos para su repaso posterior.
+Each of the files represents an evolution of the previous file. I know I could do it all on the same file.
+#I have chosen to do it this way in order to have the files for later review.
 
-#Nota: se practica con webs en producción porque representan el caso practico más real de testing. Es decir, faltan localizadores o estos se #repiten y me obligan a pensar como puedo realizar el test. Sé que hay webs para practicar automation pero estan preparadas para que todo sea #sencillo.
+Note: this is practiced with production sites because they represent the most real practical case of testing. That is, locators are missing or they #repeat and force me to think about how I can do the test. I know there are websites to practice automation but they are prepared to make everything #simple.
+
+# Automation testing - Basic calculator
+Automated testing of a basic calculator in Python and Selenium
+
+# What have I learned in this project?
+
+# 1- Different ways of automation
+I have practised the different ways of automated testing and have been able to find the level at which I feel comfortable to practise my learning.
+    
